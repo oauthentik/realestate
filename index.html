@@ -28,6 +28,11 @@
       href="assets/slick/slick-theme.css"
     />
     <script type="text/javascript" src="assets/slick/slick.min.js"></script>
+    <script
+      src="https://browser.sentry-cdn.com/5.10.2/bundle.min.js"
+      integrity="sha384-ssBfXiBvlVC7bdA/VX03S88B5MwXQWdnpJRbUYFPgswlOBwETwTp6F3SMUNpo9M9"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="page-content">
@@ -94,11 +99,14 @@
     </div>
   </body>
 
-  <script src="assets/EasePack.min.js"></script>
-  <script src="assets/TextPlugin.min.js"></script>
   <script src="assets/gsap.min.js"></script>
+
   <script>
     $(function() {
+      Sentry.init({
+        dsn: "https://797befba19d04eccbf65535b8e6cc9bf@sentry.io/1871013"
+      });
+
       $(".slider").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -159,7 +167,7 @@
         gsap.from(mainInfos, {
           ...config,
           delay: config.delay + 0.1,
-          onComplete: () => callback()
+          onComplete: callback
         });
       }
       function animateContent() {
