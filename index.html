@@ -54,21 +54,23 @@
         </header>
       </main>
       <aside class="description">
-        <h1>For sale</h1>
-        <p>
-          <span class="lead">** chain free **</span> Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Fugit doloremque inventore iusto eveniet
-          enim commodi dolorem exercitationem iure nulla sit.
-        </p>
-        <p class="specs">
-          <span class="spec">
-            3 Bedrooms,
-          </span>
-          <span class="spec">
-            1 Kitchen,
-          </span>
-          <span class="spec">1 living room</span>
-        </p>
+        <div>
+          <h1>For sale</h1>
+          <p>
+            <span class="lead">** chain free **</span> Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Fugit doloremque inventore iusto
+            eveniet enim commodi dolorem exercitationem iure nulla sit.
+          </p>
+          <p class="specs">
+            <span class="spec">
+              3 Bedrooms,
+            </span>
+            <span class="spec">
+              1 Kitchen,
+            </span>
+            <span class="spec">1 living room</span>
+          </p>
+        </div>
         <div class="qr-section">
           <div class="flex">
             <div class="qr-code">
@@ -99,8 +101,10 @@
     $(function() {
       $(".slider").slick({
         slidesToShow: 1,
+        adaptiveHeight: true,
         slidesToScroll: 1,
         autoplay: true,
+        mobileFirst: true,
         autoplaySpeed: 2000,
         dots: true,
         arrows: true
