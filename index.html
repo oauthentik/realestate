@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>slide 1</title>
+    <meta charset="utf-8" />
+    <title>Dsignage</title>
+    <base href="/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap"
       rel="stylesheet"
@@ -12,22 +14,19 @@
 
     <link rel="stylesheet" href="assets/normalize.css" />
     <link rel="stylesheet" href="assets/style.css" />
-
-    <script
-      src="https://code.jquery.com/jquery-2.0.0.min.js"
-      integrity="sha256-1IKHGl6UjLSIT6CXLqmKgavKBXtr0/jJlaGMEkh+dhw="
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" type="text/css" href="assets/slick/slick.css" />
     <link
       rel="stylesheet"
       type="text/css"
-      href="assets/slick/slick-theme.css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.6/slick.min.js"
-    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//unpkg.com/slick-carousel@1.8.1/slick/slick.js"></script>
     <script
       src="https://browser.sentry-cdn.com/5.10.2/bundle.min.js"
       integrity="sha384-ssBfXiBvlVC7bdA/VX03S88B5MwXQWdnpJRbUYFPgswlOBwETwTp6F3SMUNpo9M9"
@@ -35,167 +34,6 @@
     ></script>
   </head>
   <body>
-    <div class="page-content">
-      <main>
-        <div class="image-slides">
-          <div class="slider">
-            <div>
-              <img src="assets/images/house-front.jpg" class="slide" alt="" />
-            </div>
-            <div>
-              <img src="assets/images/house-above.jpg" class="slide" alt="" />
-            </div>
-            <div>
-              <img src="assets/images/house-lake.jpg" class="slide" alt="" />
-            </div>
-          </div>
-        </div>
-        <header class="main-infos">
-          <h2 class="location">Artice road</h2>
-          <h2 class="price"><span class="currency">£</span> 269959</h2>
-          <p class="address">
-            Dunt Barn, Dunt Lane, Reading, RG10 0TA
-          </p>
-        </header>
-      </main>
-      <aside class="description">
-        <div>
-          <h1>For sale</h1>
-          <p>
-            <span class="lead">** chain free **</span> Lorem ipsum dolor sit
-            amet, consectetur adipisicing elit. Fugit doloremque inventore iusto
-            eveniet enim commodi dolorem exercitationem iure nulla sit.
-          </p>
-          <p class="specs">
-            <span class="spec">
-              3 Bedrooms,
-            </span>
-            <span class="spec">
-              1 Kitchen,
-            </span>
-            <span class="spec">1 living room</span>
-          </p>
-        </div>
-        <div class="qr-section">
-          <div class="flex">
-            <div class="qr-code">
-              <img src="assets/images/qr.svg" alt="Product QR" />
-            </div>
-            <div class="phone">
-              <img src="assets/images/phone.svg" alt="Phone" />
-            </div>
-          </div>
-          <p class="qr-link">
-            <small>No QR reader ? visit example.com</small>
-          </p>
-        </div>
-      </aside>
-
-      <div class="slider-paths">
-        <div class="path"></div>
-        <div class="path"></div>
-        <div class="path"></div>
-      </div>
-    </div>
-  </body>
-
-  <script src="assets/gsap.min.js"></script>
-
-  <script>
-    $(function() {
-      Sentry.init({
-        dsn: "https://797befba19d04eccbf65535b8e6cc9bf@sentry.io/1871013"
-      });
-
-      $(".slider").slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        mobileFirst: true,
-        autoplaySpeed: 2000,
-        dots: true,
-        arrows: true
-      });
-
-      const imageContainer = $(".image-slides");
-      const description = $(".description");
-      const descriptionHeader = description.find("h1");
-      const descriptionQuote = description.find("p");
-      const descriptionIcons = description
-        .find(".qr-section")
-        .find(".phone,.qr-code");
-      const specs = $(".specs").find(".spec");
-      const descriptionLink = description.find(".qr-link");
-      const mainInfos = $(".main-infos");
-      const mainInfosContent = mainInfos.find(".location, .price ,.address");
-      const sliders = $(".slider-paths .path");
-      const slideLeft = {
-        delay: 0.5,
-        duration: 0.3,
-        force3D: true,
-        x: "100%"
-      };
-      const slideUp = {
-        delay: 0.5,
-        duration: 0.3,
-        force3D: true,
-        y: "100%"
-      };
-      function setup() {
-        TweenLite.set([descriptionHeader, descriptionQuote], {
-          transformOrigin: "0 100%",
-          scaleY: 0
-        });
-        TweenLite.set(mainInfosContent, {
-          transformOrigin: "0 50%",
-          scale: 0
-        });
-        TweenLite.set(descriptionIcons, {
-          scale: 0
-        });
-        TweenLite.to(sliders, {
-          duration: 3,
-          stagger: 0.1
-        });
-      }
-      function animateBasic(config, callback) {
-        gsap.from(imageContainer, config);
-        gsap.from(description, {
-          ...config,
-          delay: config.delay + 0.1
-        });
-        gsap.from(mainInfos, {
-          ...config,
-          delay: config.delay + 0.1,
-          onComplete: callback
-        });
-      }
-      function animateContent() {
-        const tl = gsap.timeline();
-
-        tl.to([descriptionHeader, descriptionQuote], {
-          duration: 0.5,
-          force3D: true,
-          scaleY: 1
-        })
-          .to(mainInfosContent, {
-            transformOrigin: "0 50%",
-            duration: 0.3,
-            scale: 1
-          })
-          .to(descriptionIcons, {
-            force3D: true,
-            stagger: 0.2,
-            duration: 0.5,
-            scale: 1
-          });
-        tl.play();
-      }
-      //
-      setup();
-      animateBasic(slideUp, animateContent);
-
-      //
-    });
-  </script>
+    <app-root></app-root>
+  <script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="styles.js"></script><script type="text/javascript" src="vendor.js"></script><script type="text/javascript" src="main.js"></script></body>
 </html>
