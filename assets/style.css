@@ -141,3 +141,28 @@ p {
   background-color: rgba(255, 255, 255, 0.418);
   z-index: 1;
 }
+.loader {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: rgb(194, 194, 194);
+}
+
+.loader section {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+}
+.loader div {
+  background-color: white;
+  height: 100vh;
+  transition: background-color 1s;
+}
+.loader h1 {
+  font-size: 5em;
+  position: absolute;
+  top: 40%;
+  left: 12%;
+  opacity: 0;
+  z-index: 2;
+}
